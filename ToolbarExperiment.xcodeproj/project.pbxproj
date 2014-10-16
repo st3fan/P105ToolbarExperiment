@@ -7,12 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E41B166519EFFE3D00F1FEFD /* Sofa.png in Resources */ = {isa = PBXBuildFile; fileRef = E41B166319EFFE3D00F1FEFD /* Sofa.png */; };
+		E41B166619EFFE3D00F1FEFD /* Sofa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E41B166419EFFE3D00F1FEFD /* Sofa@2x.png */; };
+		E41B166819F043FB00F1FEFD /* FiraSans-UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E41B166719F043FB00F1FEFD /* FiraSans-UltraLight.ttf */; };
 		E4D5385C19EFEF4200270B77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5385B19EFEF4200270B77 /* AppDelegate.swift */; };
 		E4D5385E19EFEF4200270B77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5385D19EFEF4200270B77 /* ViewController.swift */; };
 		E4D5386119EFEF4200270B77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4D5385F19EFEF4200270B77 /* Main.storyboard */; };
 		E4D5386319EFEF4200270B77 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4D5386219EFEF4200270B77 /* Images.xcassets */; };
 		E4D5386619EFEF4200270B77 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D5386419EFEF4200270B77 /* LaunchScreen.xib */; };
 		E4D5387219EFEF4200270B77 /* ToolbarExperimentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5387119EFEF4200270B77 /* ToolbarExperimentTests.swift */; };
+		E4D5387D19EFEFC200270B77 /* ToolbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5387B19EFEFC200270B77 /* ToolbarViewController.swift */; };
+		E4D5387E19EFEFC200270B77 /* ToolbarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D5387C19EFEFC200270B77 /* ToolbarViewController.xib */; };
+		E4D5388119EFF2B700270B77 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5387F19EFF2B700270B77 /* BookmarksViewController.swift */; };
+		E4D5388219EFF2B700270B77 /* BookmarksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D5388019EFF2B700270B77 /* BookmarksViewController.xib */; };
+		E4D5388519EFF2C600270B77 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5388319EFF2C600270B77 /* HistoryViewController.swift */; };
+		E4D5388619EFF2C600270B77 /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D5388419EFF2C600270B77 /* HistoryViewController.xib */; };
+		E4D5388919EFF2D500270B77 /* ReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5388719EFF2D500270B77 /* ReaderViewController.swift */; };
+		E4D5388A19EFF2D500270B77 /* ReaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D5388819EFF2D500270B77 /* ReaderViewController.xib */; };
+		E4D5388D19EFF2ED00270B77 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5388B19EFF2ED00270B77 /* SettingsViewController.swift */; };
+		E4D5388E19EFF2ED00270B77 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D5388C19EFF2ED00270B77 /* SettingsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E41B166319EFFE3D00F1FEFD /* Sofa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sofa.png; sourceTree = "<group>"; };
+		E41B166419EFFE3D00F1FEFD /* Sofa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sofa@2x.png"; sourceTree = "<group>"; };
+		E41B166719F043FB00F1FEFD /* FiraSans-UltraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-UltraLight.ttf"; sourceTree = "<group>"; };
 		E4D5385619EFEF4200270B77 /* ToolbarExperiment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToolbarExperiment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4D5385A19EFEF4200270B77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4D5385B19EFEF4200270B77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +52,16 @@
 		E4D5386B19EFEF4200270B77 /* ToolbarExperimentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToolbarExperimentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4D5387019EFEF4200270B77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4D5387119EFEF4200270B77 /* ToolbarExperimentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarExperimentTests.swift; sourceTree = "<group>"; };
+		E4D5387B19EFEFC200270B77 /* ToolbarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarViewController.swift; sourceTree = "<group>"; };
+		E4D5387C19EFEFC200270B77 /* ToolbarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolbarViewController.xib; sourceTree = "<group>"; };
+		E4D5387F19EFF2B700270B77 /* BookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
+		E4D5388019EFF2B700270B77 /* BookmarksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookmarksViewController.xib; sourceTree = "<group>"; };
+		E4D5388319EFF2C600270B77 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		E4D5388419EFF2C600270B77 /* HistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryViewController.xib; sourceTree = "<group>"; };
+		E4D5388719EFF2D500270B77 /* ReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderViewController.swift; sourceTree = "<group>"; };
+		E4D5388819EFF2D500270B77 /* ReaderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReaderViewController.xib; sourceTree = "<group>"; };
+		E4D5388B19EFF2ED00270B77 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E4D5388C19EFF2ED00270B77 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +109,19 @@
 				E4D5386219EFEF4200270B77 /* Images.xcassets */,
 				E4D5386419EFEF4200270B77 /* LaunchScreen.xib */,
 				E4D5385919EFEF4200270B77 /* Supporting Files */,
+				E4D5387B19EFEFC200270B77 /* ToolbarViewController.swift */,
+				E4D5387C19EFEFC200270B77 /* ToolbarViewController.xib */,
+				E4D5387F19EFF2B700270B77 /* BookmarksViewController.swift */,
+				E4D5388019EFF2B700270B77 /* BookmarksViewController.xib */,
+				E4D5388319EFF2C600270B77 /* HistoryViewController.swift */,
+				E4D5388419EFF2C600270B77 /* HistoryViewController.xib */,
+				E4D5388719EFF2D500270B77 /* ReaderViewController.swift */,
+				E4D5388819EFF2D500270B77 /* ReaderViewController.xib */,
+				E4D5388B19EFF2ED00270B77 /* SettingsViewController.swift */,
+				E4D5388C19EFF2ED00270B77 /* SettingsViewController.xib */,
+				E41B166319EFFE3D00F1FEFD /* Sofa.png */,
+				E41B166419EFFE3D00F1FEFD /* Sofa@2x.png */,
+				E41B166719F043FB00F1FEFD /* FiraSans-UltraLight.ttf */,
 			);
 			path = ToolbarExperiment;
 			sourceTree = "<group>";
@@ -192,9 +231,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E41B166819F043FB00F1FEFD /* FiraSans-UltraLight.ttf in Resources */,
+				E41B166519EFFE3D00F1FEFD /* Sofa.png in Resources */,
+				E4D5387E19EFEFC200270B77 /* ToolbarViewController.xib in Resources */,
 				E4D5386119EFEF4200270B77 /* Main.storyboard in Resources */,
+				E41B166619EFFE3D00F1FEFD /* Sofa@2x.png in Resources */,
 				E4D5386619EFEF4200270B77 /* LaunchScreen.xib in Resources */,
+				E4D5388E19EFF2ED00270B77 /* SettingsViewController.xib in Resources */,
+				E4D5388219EFF2B700270B77 /* BookmarksViewController.xib in Resources */,
 				E4D5386319EFEF4200270B77 /* Images.xcassets in Resources */,
+				E4D5388619EFF2C600270B77 /* HistoryViewController.xib in Resources */,
+				E4D5388A19EFF2D500270B77 /* ReaderViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,8 +259,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4D5388119EFF2B700270B77 /* BookmarksViewController.swift in Sources */,
+				E4D5387D19EFEFC200270B77 /* ToolbarViewController.swift in Sources */,
+				E4D5388D19EFF2ED00270B77 /* SettingsViewController.swift in Sources */,
 				E4D5385E19EFEF4200270B77 /* ViewController.swift in Sources */,
+				E4D5388519EFF2C600270B77 /* HistoryViewController.swift in Sources */,
 				E4D5385C19EFEF4200270B77 /* AppDelegate.swift in Sources */,
+				E4D5388919EFF2D500270B77 /* ReaderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +457,7 @@
 				E4D5387719EFEF4200270B77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E4D5387819EFEF4200270B77 /* Build configuration list for PBXNativeTarget "ToolbarExperimentTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +466,7 @@
 				E4D5387A19EFEF4200270B77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
