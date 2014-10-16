@@ -5,7 +5,7 @@
 import UIKit
 
 
-let BUTTON_SIZE = CGSize(width: 60, height: 60)
+let BUTTON_SIZE = CGSize(width: 64, height: 60)
 let BUTTON_HORIZONTAL_SPACING: CGFloat = 8.0
 let BUTTON_BOTTOM_MARGIN: CGFloat = 2.0
 
@@ -28,6 +28,7 @@ extension ToolbarItem
     static let Settings = ToolbarItem(title: "Settings", imageName: "Sofa", viewController: SettingsViewController(nibName: "SettingsViewController", bundle: nil))
 }
 
+
 func maskedImageWithColor(mask: UIImage, color: UIColor) -> UIImage
 {
     UIGraphicsBeginImageContextWithOptions(mask.size, false, 0.0)
@@ -41,6 +42,46 @@ func maskedImageWithColor(mask: UIImage, color: UIColor) -> UIImage
     let image = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
     return image
+}
+
+
+class ToolbarButton: UIButton
+{
+    var item: ToolbarItem?
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        if let imageView = self.imageView {
+            imageView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds))
+            imageView.frame = CGRectOffset(imageView.frame, 0, -(imageView.frame.size.height/2) + 8)
+        }
+        
+        if let titleLabel = self.titleLabel {
+            titleLabel.frame.size.width = frame.size.width
+            titleLabel.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds))
+            titleLabel.frame = CGRectOffset(titleLabel.frame, 0, titleLabel.frame.size.height/2 + 12)
+        }
+    }
+    
+    init(toolbarItem: ToolbarItem) {
+        super.init(frame: CGRect(x: 0, y: 0, width: BUTTON_SIZE.width, height: BUTTON_SIZE.height))
+        item = toolbarItem
+        
+        let image = UIImage(named: toolbarItem.imageName)
+        setImage(maskedImageWithColor(image, UIColor.whiteColor()), forState: UIControlState.Normal)
+        setImage(maskedImageWithColor(image, UIColor.orangeColor()), forState: UIControlState.Selected)
+        
+        titleLabel?.font = UIFont(name: LABEL_FONT_NAME, size: LABEL_FONT_SIZE)
+        titleLabel?.textAlignment = NSTextAlignment.Center
+        titleLabel?.sizeToFit()
+        
+        setTitle(item?.title, forState: UIControlState.Normal)
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 class ToolbarButtonView: UIView
@@ -118,7 +159,7 @@ class ToolbarContainerView: UIView
 class ToolbarViewController: UIViewController
 {
     var items: [ToolbarItem] = [ToolbarItem.Bookmarks, ToolbarItem.History, ToolbarItem.Reader, ToolbarItem.Settings]
-    var buttonViews: [ToolbarButtonView] = []
+    var buttons: [ToolbarButton] = []
     
     var _selectedButtonIndex: Int = -1
     
@@ -128,14 +169,12 @@ class ToolbarViewController: UIViewController
         }
         set (newButtonIndex) {
             if (_selectedButtonIndex != -1) {
-                if let currentButton = buttonViews[_selectedButtonIndex].button {
-                    currentButton.selected = false
-                }
+                let currentButton = buttons[_selectedButtonIndex]
+                currentButton.selected = false
             }
 
-            if let newButton = buttonViews[newButtonIndex].button {
-                newButton.selected = true
-            }
+            let newButton = buttons[newButtonIndex]
+            newButton.selected = true
             
             // Update the active view controller
             
@@ -186,8 +225,8 @@ class ToolbarViewController: UIViewController
     }
     
     func tappedButton(sender: UIButton!) {
-        for (index, buttonView) in enumerate(buttonViews) {
-            if (buttonView.button == sender) {
+        for (index, button) in enumerate(buttons) {
+            if (button == sender) {
                 selectedButtonIndex = index
                 break
             }
@@ -201,10 +240,10 @@ class ToolbarViewController: UIViewController
     override func viewDidLoad() {
         if let buttonContainerView = view.viewWithTag(1) {
             for (index, item) in enumerate(items) {
-                var toolbarButtonView = ToolbarButtonView(toolbarItem: item)
-                buttonContainerView.addSubview(toolbarButtonView)
-                toolbarButtonView.button?.addTarget(self, action: "tappedButton:", forControlEvents: UIControlEvents.TouchUpInside)
-                buttonViews.append(toolbarButtonView)
+                var toolbarButton = ToolbarButton(toolbarItem: item)
+                buttonContainerView.addSubview(toolbarButton)
+                toolbarButton.addTarget(self, action: "tappedButton:", forControlEvents: UIControlEvents.TouchUpInside)
+                buttons.append(toolbarButton)
             }
 
             selectedButtonIndex = 0
