@@ -5,10 +5,14 @@
 import UIKit
 
 
-let BUTTON_SIZE = CGSize(width: 64, height: 60)
-let BUTTON_HORIZONTAL_SPACING: CGFloat = 8.0
-let BUTTON_BOTTOM_MARGIN: CGFloat = 2.0
+// This is the bounding box of the button. The image is aligned to the top of the box, the text label to the bottom.
+let BUTTON_SIZE = CGSize(width: 72, height: 56)
 
+// Color and height of the orange divider
+let DIVIDER_COLOR: UIColor = UIColor.orangeColor()
+let DIVIDER_HEIGHT: CGFloat = 4.0
+
+// Font name and size used for the button label
 let LABEL_FONT_NAME: String = "FiraSans-UltraLight"
 let LABEL_FONT_SIZE: CGFloat = 13.0
 
@@ -20,28 +24,14 @@ struct ToolbarItem
     var viewController: UIViewController
 }
 
+
 extension ToolbarItem
 {
-    static let Bookmarks = ToolbarItem(title: "Bookmarks", imageName: "Sofa", viewController: BookmarksViewController(nibName: "BookmarksViewController", bundle: nil))
-    static let History = ToolbarItem(title: "History", imageName: "Sofa", viewController: HistoryViewController(nibName: "HistoryViewController", bundle: nil))
-    static let Reader = ToolbarItem(title: "Reader", imageName: "Sofa", viewController: ReaderViewController(nibName: "ReaderViewController", bundle: nil))
-    static let Settings = ToolbarItem(title: "Settings", imageName: "Sofa", viewController: SettingsViewController(nibName: "SettingsViewController", bundle: nil))
-}
-
-
-func maskedImageWithColor(mask: UIImage, color: UIColor) -> UIImage
-{
-    UIGraphicsBeginImageContextWithOptions(mask.size, false, 0.0)
-    var context = UIGraphicsGetCurrentContext()
-    var rect = CGRect(x: 0, y: 0, width: mask.size.width, height: mask.size.height)
-    CGContextTranslateCTM(context,0.0,mask.size.height);
-    CGContextScaleCTM(context, 1.0, -1.0);
-    CGContextClipToMask(context, rect, mask.CGImage);
-    CGContextSetFillColorWithColor(context, color.CGColor)
-    CGContextFillRect(context, rect)
-    let image = UIGraphicsGetImageFromCurrentImageContext()
-    UIGraphicsEndImageContext()
-    return image
+    static let Tabs = ToolbarItem(title: "Tabs", imageName: "tabs", viewController: BookmarksViewController(nibName: "TabsViewController", bundle: nil))
+    static let Bookmarks = ToolbarItem(title: "Bookmarks", imageName: "bookmarks", viewController: BookmarksViewController(nibName: "BookmarksViewController", bundle: nil))
+    static let History = ToolbarItem(title: "History", imageName: "history", viewController: HistoryViewController(nibName: "HistoryViewController", bundle: nil))
+    static let Reader = ToolbarItem(title: "Reader", imageName: "reader", viewController: ReaderViewController(nibName: "ReaderViewController", bundle: nil))
+    static let Settings = ToolbarItem(title: "Settings", imageName: "settings", viewController: SettingsViewController(nibName: "SettingsViewController", bundle: nil))
 }
 
 
@@ -54,29 +44,28 @@ class ToolbarButton: UIButton
         
         if let imageView = self.imageView {
             imageView.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds))
-            imageView.frame = CGRectOffset(imageView.frame, 0, -(imageView.frame.size.height/2) + 8)
+            imageView.frame =  CGRect(origin: CGPointMake(imageView.frame.origin.x, 0), size: imageView.frame.size)
         }
         
         if let titleLabel = self.titleLabel {
             titleLabel.frame.size.width = frame.size.width
             titleLabel.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds))
-            titleLabel.frame = CGRectOffset(titleLabel.frame, 0, titleLabel.frame.size.height/2 + 12)
+            titleLabel.frame = CGRect(origin: CGPointMake(titleLabel.frame.origin.x, super.frame.height - titleLabel.frame.height), size: titleLabel.frame.size)
         }
     }
     
-    init(toolbarItem: ToolbarItem) {
+    init(toolbarItem item: ToolbarItem) {
         super.init(frame: CGRect(x: 0, y: 0, width: BUTTON_SIZE.width, height: BUTTON_SIZE.height))
-        item = toolbarItem
+        self.item = item
         
-        let image = UIImage(named: toolbarItem.imageName)
-        setImage(maskedImageWithColor(image, UIColor.whiteColor()), forState: UIControlState.Normal)
-        setImage(maskedImageWithColor(image, UIColor.orangeColor()), forState: UIControlState.Selected)
+        setImage(UIImage(named: "nav-\(item.imageName)-off.png"), forState: UIControlState.Normal)
+        setImage(UIImage(named: "nav-\(item.imageName)-on.png"), forState: UIControlState.Selected)
         
         titleLabel?.font = UIFont(name: LABEL_FONT_NAME, size: LABEL_FONT_SIZE)
         titleLabel?.textAlignment = NSTextAlignment.Center
         titleLabel?.sizeToFit()
         
-        setTitle(item?.title, forState: UIControlState.Normal)
+        setTitle(item.title, forState: UIControlState.Normal)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -84,73 +73,26 @@ class ToolbarButton: UIButton
     }
 }
 
-class ToolbarButtonView: UIView
-{
-    var item: ToolbarItem?
-    var button: UIButton?
-    var label: UILabel?
-    
-    func initialize(toolbarItem: ToolbarItem) {
-        self.item = toolbarItem
-        self.tintColor = UIColor.whiteColor()
-
-        let image = UIImage(named: toolbarItem.imageName)
-        
-        self.button = UIButton.buttonWithType(UIButtonType.Custom) as? UIButton
-        button?.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        button?.setImage(maskedImageWithColor(image, UIColor.whiteColor()), forState: UIControlState.Normal)
-        button?.setImage(maskedImageWithColor(image, UIColor.orangeColor()), forState: UIControlState.Selected)
-        addSubview(self.button!)
-
-        
-        self.label = UILabel()
-        label?.font = UIFont(name: LABEL_FONT_NAME, size: LABEL_FONT_SIZE)
-        label?.textAlignment = NSTextAlignment.Center
-        label?.text = toolbarItem.title
-        label?.textColor = UIColor.whiteColor()
-        label?.sizeToFit()
-        addSubview(self.label!)
-    }
-    
-    init(toolbarItem: ToolbarItem) {
-        super.init(frame: CGRect(x: 0, y: 0, width: BUTTON_SIZE.width, height: BUTTON_SIZE.height))
-        self.initialize(toolbarItem)
-    }
-    
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.initialize(ToolbarItem.Bookmarks)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        if let button = self.button {
-            button.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds))
-            button.frame = CGRectOffset(button.frame, 0, -(button.frame.size.height/2) + 12)
-        }
-
-        if let label = self.label {
-            label.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds))
-            label.frame = CGRectOffset(label.frame, 0, label.frame.size.height/2 + 10)
-        }
-    }
-}
-
-
 class ToolbarContainerView: UIView
 {
+    override func drawRect(rect: CGRect) {
+        super.drawRect(rect)
+        
+        let context = UIGraphicsGetCurrentContext()
+        CGContextSetFillColorWithColor(context, DIVIDER_COLOR.CGColor)
+        CGContextFillRect(context, CGRect(x: 0, y: frame.height-DIVIDER_HEIGHT, width: frame.width, height: DIVIDER_HEIGHT))
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        var origin = CGPoint(x: (frame.width - CGFloat(countElements(subviews) - 1) * BUTTON_SIZE.width - CGFloat(countElements(subviews) - 2) * BUTTON_HORIZONTAL_SPACING) / 2.0,
+        var origin = CGPoint(x: (frame.width - CGFloat(countElements(subviews)) * BUTTON_SIZE.width) / 2.0,
             y: (frame.height - BUTTON_SIZE.height) / 2.0)
+        origin.y += 15 - DIVIDER_HEIGHT
         
         for view in subviews as [UIView] {
-            if (view.frame.width == BUTTON_SIZE.width) {
-                view.frame = CGRect(origin: origin, size: view.frame.size)
-                origin.x += BUTTON_SIZE.width + BUTTON_HORIZONTAL_SPACING
-            }
+            view.frame = CGRect(origin: origin, size: view.frame.size)
+            origin.x += BUTTON_SIZE.width
         }
     }
 }
@@ -158,7 +100,7 @@ class ToolbarContainerView: UIView
 
 class ToolbarViewController: UIViewController
 {
-    var items: [ToolbarItem] = [ToolbarItem.Bookmarks, ToolbarItem.History, ToolbarItem.Reader, ToolbarItem.Settings]
+    var items: [ToolbarItem] = [ToolbarItem.Tabs, ToolbarItem.Bookmarks, ToolbarItem.History, ToolbarItem.Reader, ToolbarItem.Settings]
     var buttons: [ToolbarButton] = []
     
     var _selectedButtonIndex: Int = -1
