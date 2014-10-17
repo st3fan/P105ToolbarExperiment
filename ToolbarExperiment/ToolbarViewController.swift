@@ -9,11 +9,11 @@ import UIKit
 let BUTTON_SIZE = CGSize(width: 72, height: 56)
 
 // Color and height of the orange divider
-let DIVIDER_COLOR: UIColor = UIColor.orangeColor()
+let DIVIDER_COLOR: UIColor = UIColor(red: 255.0/255.0, green: 149.0/255.0, blue: 0.0, alpha: 1.0)
 let DIVIDER_HEIGHT: CGFloat = 4.0
 
 // Font name and size used for the button label
-let LABEL_FONT_NAME: String = "FiraSans-UltraLight"
+let LABEL_FONT_NAME: String = "FiraSans-Light"
 let LABEL_FONT_SIZE: CGFloat = 13.0
 
 
@@ -64,6 +64,7 @@ class ToolbarButton: UIButton
         titleLabel?.font = UIFont(name: LABEL_FONT_NAME, size: LABEL_FONT_SIZE)
         titleLabel?.textAlignment = NSTextAlignment.Center
         titleLabel?.sizeToFit()
+        titleLabel?.textColor = UIColor.whiteColor()
         
         setTitle(item.title, forState: UIControlState.Normal)
     }

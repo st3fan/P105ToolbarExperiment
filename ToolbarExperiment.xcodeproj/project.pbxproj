@@ -40,6 +40,7 @@
 		E41B16A519F1538100F1FEFD /* nav-tabs-on@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E41B168719F1538100F1FEFD /* nav-tabs-on@3x.png */; };
 		E41B16A819F163D900F1FEFD /* TabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B16A619F163D900F1FEFD /* TabsViewController.swift */; };
 		E41B16A919F163D900F1FEFD /* TabsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E41B16A719F163D900F1FEFD /* TabsViewController.xib */; };
+		E41B16E319F1920200F1FEFD /* FiraSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E41B16E219F1920200F1FEFD /* FiraSans-Light.ttf */; };
 		E4D5385C19EFEF4200270B77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5385B19EFEF4200270B77 /* AppDelegate.swift */; };
 		E4D5385E19EFEF4200270B77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D5385D19EFEF4200270B77 /* ViewController.swift */; };
 		E4D5386119EFEF4200270B77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4D5385F19EFEF4200270B77 /* Main.storyboard */; };
@@ -102,6 +103,7 @@
 		E41B168719F1538100F1FEFD /* nav-tabs-on@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-tabs-on@3x.png"; sourceTree = "<group>"; };
 		E41B16A619F163D900F1FEFD /* TabsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabsViewController.swift; sourceTree = "<group>"; };
 		E41B16A719F163D900F1FEFD /* TabsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabsViewController.xib; sourceTree = "<group>"; };
+		E41B16E219F1920200F1FEFD /* FiraSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-Light.ttf"; sourceTree = "<group>"; };
 		E4D5385619EFEF4200270B77 /* ToolbarExperiment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToolbarExperiment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4D5385A19EFEF4200270B77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4D5385B19EFEF4200270B77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				E4D5388B19EFF2ED00270B77 /* SettingsViewController.swift */,
 				E4D5388C19EFF2ED00270B77 /* SettingsViewController.xib */,
 				E41B166719F043FB00F1FEFD /* FiraSans-UltraLight.ttf */,
+				E41B16E219F1920200F1FEFD /* FiraSans-Light.ttf */,
 				E41B166919F1538100F1FEFD /* resources */,
 				E41B16A619F163D900F1FEFD /* TabsViewController.swift */,
 				E41B16A719F163D900F1FEFD /* TabsViewController.xib */,
@@ -354,6 +357,7 @@
 				E41B168819F1538100F1FEFD /* nav-bookmarks-off.png in Resources */,
 				E4D5388219EFF2B700270B77 /* BookmarksViewController.xib in Resources */,
 				E4D5386319EFEF4200270B77 /* Images.xcassets in Resources */,
+				E41B16E319F1920200F1FEFD /* FiraSans-Light.ttf in Resources */,
 				E41B169A19F1538100F1FEFD /* nav-settings-off.png in Resources */,
 				E41B169619F1538100F1FEFD /* nav-reader-off@3x.png in Resources */,
 				E41B16A119F1538100F1FEFD /* nav-tabs-off@2x.png in Resources */,
